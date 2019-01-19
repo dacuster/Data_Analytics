@@ -9,7 +9,7 @@
 # printing 'OK' when each function is correct.
 # The starter code for each function includes a 'return'
 # which is just a placeholder for your code.
-# Please do not edit anything within 
+# Please do not edit anything within
 # #### BEGIN DO NOT EDIT and
 # #### END DO NOT EDIT lines
 
@@ -17,8 +17,12 @@
 # Divide one list into two lists so that all numbers that are
 # smaller than the given midpoint are in the first list called lower and the
 # rest are in the second list called upper. Return the lower list
-# If midpoint = 5, and the list is range(1,10) lower = [1,2,3,4] and upper = [5,6,7,8,9]
-# function should return [1,2,3,4]. Numbers should remain in original order in the list.
+# If midpoint = 5, and the list is range(1,10) lower = [1,2,3,4] and
+# upper = [5,6,7,8,9]
+# function should return [1,2,3,4]. Numbers should remain in original order in
+# the list.
+
+
 def divide_list(original_list, midpoint):
     # Empty upper and lower value lists.
     lowerList = []
@@ -36,8 +40,10 @@ def divide_list(original_list, midpoint):
     # Return the lower valued list.
     return lowerList
 
+
 # B. Find_minimum
-# Find minimum of the list. You can assume the maximum value for any list's minimum is 10000,
+# Find minimum of the list. You can assume the maximum value for any list's
+# minimum is 10000,
 # if it is more than 10000 return a msg that says "Too large"
 def find_min(original_list):
     # Create starting reference variables.
@@ -67,18 +73,19 @@ def remove_adjacent(nums):
 
     # Iterate through the given list.
     for currentIndex in nums:
-        # Add the current iteration to the result list if it's empty or is not the
-        # same as the last value in the result list.
+        # Add the current iteration to the result list if it's empty or is not
+        # the same as the last value in the result list.
         if len(result) == 0 or currentIndex != result[-1]:
             result.append(currentIndex)
 
     # Return the result list.
     return result
-  
 
-#### BEGIN DO NOT EDIT
-# Provided simple test() function used in main() to # what each function returns vs. what it's supposed to return.
-def test(got, expected, points = 1):
+
+# BEGIN DO NOT EDIT
+# Provided simple test() function used in main() to # what each function
+# returns vs. what it's supposed to return.
+def test(got, expected, points=1):
     if got == expected:
         prefix = ' OK '
     else:
@@ -98,28 +105,29 @@ def main():
     score = 0
 
     print('divide_list')
-    # Each line calls divide_list, compares its result to the expected for that call.
-    score+= test(divide_list(range(10),5), [0,1,2,3,4])
-    score+= test(divide_list([5, 4, 3, 6, 10, 17], 3), [])
-    score+= test(divide_list([5, 4, 3, 6, 10, 17], 10), [5, 4, 3, 6])
-    score+= test(divide_list(range(100),50),list(range(50)))
+    # Each line calls divide_list, compares its result to the expected for that
+    # call.
+    score += test(divide_list(range(10), 5), [0, 1, 2, 3, 4])
+    score += test(divide_list([5, 4, 3, 6, 10, 17], 3), [])
+    score += test(divide_list([5, 4, 3, 6, 10, 17], 10), [5, 4, 3, 6])
+    score += test(divide_list(range(100), 50), list(range(50)))
 
-    score+= test(find_min(range(10)), 0)
-    score+= test(find_min([5, 4, 3, 6, 10, 17, 100001]), 3 )
-    score+= test(find_min([5, 4, 3, 6, 10, 17]), 3)
-    score+= test(find_min(range(100)),0)
-    
+    score += test(find_min(range(10)), 0)
+    score += test(find_min([5, 4, 3, 6, 10, 17, 100001]), 3)
+    score += test(find_min([5, 4, 3, 6, 10, 17]), 3)
+    score += test(find_min(range(100)), 0)
+
     print('remove_adjacent')
-    score+= test(remove_adjacent([1, 2, 2, 3]), [1, 2, 3])
-    score+= test(remove_adjacent([2, 2, 3, 3, 3]), [2, 3])
-    score+= test(remove_adjacent([]), [])
-    
+    score += test(remove_adjacent([1, 2, 2, 3]), [1, 2, 3])
+    score += test(remove_adjacent([2, 2, 3, 3, 3]), [2, 3])
+    score += test(remove_adjacent([]), [])
+
     print('Your current score is: {}'.format(score))
-    
+
     f_temp = open("temp_grade", "w+")
     f_temp.write(str(score))
 
 # Standard boilerplate to call the main() function.
 if __name__ == '__main__':
     main()
-#### END DO NOT EDIT
+# END DO NOT EDIT
