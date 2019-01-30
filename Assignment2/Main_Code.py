@@ -109,6 +109,23 @@ def main():
 	# Reset out to 0 for counting.
 	out = 0
 
+	# group by used to group certain columns.
+	# Get the sum of each column. ( Only numerical values are added together. )
+	# Sort the values by a specific column.
+	#
+	print(chipo.groupby(['item_name']).sum().sort_values(['quantity'], ascending=False).head(1).quantity)
+		# Group by used to group certain columns.
+	# Get the sum of each column. ( Only numerical values are added together. )
+	# Sort the values by a specific column. ( Ascending is true by default. )
+	# Get the first row.
+	# Get the quantity column value.
+	print(chipo.groupby(['item_name']).sum().sort_values(['quantity'], ascending=False).head(1).quantity)
+	highest_purchased_item = chipo.groupby(['item_name'])
+	highest_purchased_item = highest_purchased_item.sum()
+	highest_purchased_item = highest_purchased_item.sort_values(['quantity'], ascending=False)
+	highest_purchased_item = highest_purchased_item.head(1)
+	out = highest_purchased_item.quantity
+
 	# Iterate through each row.
 	for row in chipo.itertuples():
 		# Compare the row at column 'item_name' with the result from the frequency count head.
@@ -118,7 +135,7 @@ def main():
 
 	# #### BEGIN DO NOT EDIT
 	score += test(out, 761, 2)
-	# #### END DO NOT EDIT 
+	# #### END DO NOT EDIT
 
 	# ### Step 10. How many items were ordered?
 
