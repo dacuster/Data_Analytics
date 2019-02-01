@@ -42,34 +42,45 @@ def main():
 	import pandas as pd
 	import numpy as np
 
-	# ### Step 2. Import the dataset from this [address](https://raw.githubusercontent.com/justmarkham/DAT8/master/data/u.user). 
-
+	# ### Step 2. Import the dataset from this [address](https://raw.githubusercontent.com/justmarkham/DAT8/master/data/u.user).
 	# ### Step 3. Assign it to a variable called users and use the 'user_id' as index
+
+	# Assign the url to a manageable variable.
 	url = 'https://raw.githubusercontent.com/justmarkham/DAT8/master/data/u.user'
-	users = pd.read_table(url, sep='|', index_col='user_id')
+
+	# Read the table with a user_id index.
+	users = pd.read_csv(url, sep='|', index_col='user_id')
 
 	# ### Step 4. See the first 25 entries
+
+	# Print the first 25 entries.
 	print(users.head(25))
 
 	# ### Step 5. See the last 10 entries
-	# +++your code here+++
+
+	# Print last 10 entries.
+	print(users.tail(10))
 
 	# ### Step 6. What is the number of observations in the dataset?
-	# +++your code here+++
+
+	# Get the row count of the dataset.
+	out = users.shape[0]
 
 	# #### BEGIN DO NOT EDIT 
 	score += test(out, 943, 2)
 	# #### END DO NOT EDIT 
 
 	# ### Step 7. What is the number of columns in the dataset?
-	# +++your code here+++
+
+	# Get the number of columns in the dataset.
+	out = users.shape[1]
 
 	# #### BEGIN DO NOT EDIT 
 	score += test(out, 4, 2)
 	# #### END DO NOT EDIT 
 
 	# ### Step 8. Print the name of all the columns.
-	# +++your code here+++
+	out = users.columns
 
 	# #### BEGIN DO NOT EDIT 
 	score += test(str(out), "Index(['age', 'gender', 'occupation', 'zip_code'], dtype='object')", 2)
@@ -77,27 +88,30 @@ def main():
 	
 	# ### Step 9. How is the dataset indexed?
 	# "the index" (aka "the labels")
-	# +++your code here+++
+
+	# Get all the indices.
+	out = users.index
 
 	# #### BEGIN DO NOT EDIT 
 	score += test(str(out), "Int64Index([  1,   2,   3,   4,   5,   6,   7,   8,   9,  10,\n            ...\n            934, 935, 936, 937, 938, 939, 940, 941, 942, 943],\n           dtype='int64', name='user_id', length=943)", 2)
 	# #### END DO NOT EDIT 
 
 	# ### Step 10. What is the data type of each column?
-	# +++your code here+++
+	# TODO Find the data types of each column.
+	out = 0
 
 	# ### Step 11. Print only the occupation column	
-	# +++your code here+++
+	# TODO Print the occupation column.
 
 	# ### Step 12. How many different occupations there are in this dataset?
-	# +++your code here+++
+	# TODO Find the number of occupations in the dataset.
 
 	# #### BEGIN DO NOT EDIT 
 	score += test(out, 21, 3)
 	# #### END DO NOT EDIT 
 
 	# ### Step 13. How often does the most frequent occupation appear?
-	# +++your code here+++
+	# TODO Find the most frequent occupation.
 
 	# #### BEGIN DO NOT EDIT 
 	score += test(out, 196, 3)
