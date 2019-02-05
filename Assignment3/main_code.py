@@ -97,44 +97,61 @@ def main():
 	# #### END DO NOT EDIT 
 
 	# ### Step 10. What is the data type of each column?
-	# TODO Find the data types of each column.
-	out = 0
+
+	# Print the data types of each column.
+	print(users.dtypes)
 
 	# ### Step 11. Print only the occupation column	
-	# TODO Print the occupation column.
+
+	# Print the occupation column.
+	print(users.occupation)
 
 	# ### Step 12. How many different occupations there are in this dataset?
-	# TODO Find the number of occupations in the dataset.
+
+	# Find the number of occupations in the dataset.
+	out = users.occupation.nunique()
 
 	# #### BEGIN DO NOT EDIT 
 	score += test(out, 21, 3)
 	# #### END DO NOT EDIT 
 
 	# ### Step 13. How often does the most frequent occupation appear?
-	# TODO Find the most frequent occupation.
+
+	# Find the most frequent occupation.
+	out = users.occupation.value_counts()[0]
 
 	# #### BEGIN DO NOT EDIT 
 	score += test(out, 196, 3)
 	# #### END DO NOT EDIT 
 
 	# ### Step 14. Summarize the DataFrame.
-	users.describe()  # Notice is only the numeric column
+
+	# Print the statistical values of the first column.
+	print(users.describe())  # Notice is only the numeric column
 
 	# ### Step 15. Summarize all the columns
-	# +++your code here+++
+
+	# Print the statistical values of all columns.
+	print(users.describe(include='all'))
 
 	# ### Step 16. Summarize only the occupation column
-	# +++your code here+++
+
+	# Print the statistical values of the occupation column.
+	print(users.describe(include='all').occupation)
 
 	# ### Step 17. What is the mean age of users?
-	# +++your code here+++
+
+	# Get the average of the ages. Use numpy to remove the decimal value.
+	out = np.floor(users.describe().age[1])
 
 	# #### BEGIN DO NOT EDIT 
 	score += test(out, 34, 3)
 	# #### END DO NOT EDIT 
 
 	# ### Step 18. What is the age with least occurrence?
-	# +++your code here+++
+
+	# Get the minimum age value.
+	out = users.describe().age.min()
 
 	# #### BEGIN DO NOT EDIT 
 	score += test(out, 1, 3)
