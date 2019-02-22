@@ -9,7 +9,24 @@ def main():
 
     # Import the game review data.
     game_review_df = pd.read_csv('Video_Games_Sales_as_at_22_Dec_2016.csv')
-    print(game_review_df)
+
+    # Question 1.
+    # Group by console and sum up global sales.
+
+    # Question 2.
+    # Group by publisher and average user scores.
+
+    # Question 3.
+    # Average user and critic scores separately.
+    # Increase user score to 100pt scale.
+    # Check highest between the two.
+
+    # Question 4.
+    #
+
+
+
+
 
 
 # Standard boilerplate to call the main() function.
